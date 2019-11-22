@@ -1,0 +1,2 @@
+C:\Users\zanec\source\repos\FSJS Project Six\obj\Debug\FSJS Project Six.njsprojAssemblyReference.cache
+C:\Users\zanec\source\repos\FSJS Project Six\bin\Microsoft.NodejsTools.WebRole.dll
