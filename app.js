@@ -1,8 +1,7 @@
 'use strict';
-const express = require('express');
-const logger = require('morgan');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
+var express = require('express');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 // Running node.js 1.5 in Visual Studio Community. require() will not work.
 var data = JSON.parse(require('fs').readFileSync('.\\data.json') + '');
 
@@ -17,7 +16,6 @@ let projects = [
 // view engine setup
 app.set('view engine', 'pug');
 
-app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -35,8 +33,8 @@ app.get('/about', (req, res) => {
 
 // for loop for creating the project pages
 for (let i = 0; i < projects.length; ++i) {
-    app.get(`/project?id=${projects[i].id}`, (req, res) => {
-        res.render('project', { title: projects[i].project_name, description: projects[i].description, tools: projects[i].technologies, liveLink: projects[i].live_link, GitHub: projects[i].github_link, img: projects[i].image_urls[1]});
+    app.get(`/project_${projects[i].id}`, (req, res) => {
+        res.render('project', { title: projects[i].project_name, description: projects[i].description, tools: projects[i].technologies, liveLink: projects[i].live_link, GitHub: projects[i].github_link, img: projects[i].image_urls[1] });
     });
 }
 
